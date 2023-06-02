@@ -1,82 +1,10 @@
 
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Dec  8 09:35:23 2022
-
-@author: gausi
-"""
-
-
-
 <!DOCTYPE html>
 <html>
 
 <head>
 	<link rel="icon" href="https://pngimg.com/uploads/euro_sign/euro_sign_PNG21568.png" type="image/png">
     <title>Calculateur</title>
-    <style>
-
-        body {
-            background-color: #f2f2f2;
-        }
-
-        .container {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            font-size: 24px;
-        }
-
-        form {
-            margin-top: 20px;
-        }
-
-        label {
-            display: block;
-            margin-top: 10px;
-            color: #666;
-            font-size: 18px;
-        }
-
-        input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-        }
-
-        button {
-            display: block;
-            margin-top: 20px;
-            padding: 12px 24px;
-            background-color: #4caf50;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        #result {
-            margin-top: 20px;
-            font-weight: bold;
-            text-align: center;
-            font-size: 24px;
-            color: #333;
-        }
-   
-    </style>
 </head>
 <body>
     <h1>Estimation du chiffre d'affaire avec IS</h1>
@@ -98,31 +26,6 @@ Created on Thu Dec  8 09:35:23 2022
     </form>
 
     <div id="result"></div>
-
-    <script>
-        function calculate() {
-            var ChX = parseFloat(document.getElementById('external-charges').value);
-            var Cs = parseFloat(document.getElementById('social-charges').value);
-            var Ac = parseFloat(document.getElementById('purchase-percentage').value);
-            var Ee = parseFloat(document.getElementById('loan-term').value);
-
-            if (isNaN(Ac) || Ac <= 0 || Ac > 1) {
-                result.textContent = "Veuillez saisir un nombre entre 0 et 1 pour le pourcentage d'achat.";
-				result.style.color = "red";
-                return;
-            }
-
-            var Ca = 0;
-            var Rn = 0;
-
-            while (Rn < Ee) {
-                Ca++;
-                Rn = (Ca - Ac * Ca - ChX - Cs) * 0.75;
-            }
-
-            result.textContent = "Le résultat du calcul est : " + Ca+"€";
-        }
-    </script>
 </body>
 </html>
 
