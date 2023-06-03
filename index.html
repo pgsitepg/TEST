@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<link rel="icon" href="https://pngimg.com/uploads/euro_sign/euro_sign_PNG21568.png" type="image/png">
+    <link rel="icon" href="https://pngimg.com/uploads/euro_sign/euro_sign_PNG21568.png" type="image/png">
     <title>Calculateur</title>
     <style>
 
@@ -11,8 +11,7 @@
         }
 
         .container {
-            max-width: 500px;
-            margin: 0 auto;
+            max-width: 100%;
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -40,6 +39,7 @@
             width: 100%;
             padding: 10px;
             font-size: 16px;
+            box-sizing: border-box;
         }
 
         button {
@@ -65,29 +65,32 @@
             font-size: 24px;
             color: #333;
         }
-   
+
     </style>
 </head>
+
 <body>
-    <h1>Estimation du chiffre d'affaire avec IS</h1>
+    <div class="container">
+        <h1>Estimation du chiffre d'affaire avec IS</h1>
 
-    <form id="calc-form">
-        <label for="external-charges">Charges externes :</label>
-        <input type="number" id="external-charges" name="external-charges"><br>
+        <form id="calc-form">
+            <label for="external-charges">Charges externes :</label>
+            <input type="number" id="external-charges" name="external-charges"><br>
 
-        <label for="social-charges">Charges sociales :</label>
-        <input type="number" id="social-charges" name="social-charges"><br>
+            <label for="social-charges">Charges sociales :</label>
+            <input type="number" id="social-charges" name="social-charges"><br>
 
-        <label for="purchase-percentage">Pourcentage d'achat :</label>
-        <input type="number" id="purchase-percentage" name="purchase-percentage"><br>
+            <label for="purchase-percentage">Pourcentage d'achat :</label>
+            <input type="number" id="purchase-percentage" name="purchase-percentage"><br>
 
-        <label for="loan-term">Échéances d'emprunt :</label>
-        <input type="number" id="loan-term" name="loan-term"><br>
+            <label for="loan-term">Échéances d'emprunt :</label>
+            <input type="number" id="loan-term" name="loan-term"><br>
 
-        <button type="button" onclick="calculate()">Calculer</button>
-    </form>
+            <button type="button" onclick="calculate()">Calculer</button>
+        </form>
 
-    <div id="result"></div>
+        <div id="result"></div>
+    </div>
 
     <script>
         function calculate() {
@@ -98,7 +101,7 @@
 
             if (isNaN(Ac) || Ac <= 0 || Ac > 1) {
                 result.textContent = "Veuillez saisir un nombre entre 0 et 1 pour le pourcentage d'achat.";
-				result.style.color = "red";
+                result.style.color = "red";
                 return;
             }
 
@@ -110,8 +113,10 @@
                 Rn = (Ca - Ac * Ca - ChX - Cs) * 0.75;
             }
 
-            result.textContent = "Le résultat du calcul est : " + Ca+"€";
+            var result = document.getElementById('result');
+            result.textContent = "Le résultat du calcul est : " + Ca + "€";
         }
     </script>
 </body>
+
 </html>
